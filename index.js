@@ -1,17 +1,92 @@
 // TODO: Include packages needed for this application
+const fs = require('fs');
+const inquirer = require('inquirer');
 
 // TODO: Create an array of questions for user input
-const questions = [];
+const questions = 
+	[
+		{
+		type: 'input',
+		message: "Project Title",
+		name: "projectTitle"
+		},
+		{
+		type: 'input',
+		message: "Description",
+		name: "description"
+		},
+		{
+		type: 'input',
+		message: "Installation Instructions",
+		name: "installationInstructions"
+		},
+		{
+		type: 'input',
+		message: "Usage Information",
+		name: "usageInformation"
+		},
+		{
+		type: 'input',
+		message: "Contribution Guidelines",
+		name: "contributionGuidelines"
+		},
+		{
+		type: 'input',
+		message: "Test Instructions",
+		name: "testInstructions"
+		},
+		{
+		type: 'input',
+		message: "GitHub Username",
+		name: "githubUsername"
+		},
+		{
+		type: 'input',
+		message: "Email Address",
+		name: "emailAddress"
+		}
+	];
+
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(data) {
+fs.appendFile('README.md.txt', `${process.argv[2]}\n`, (err) =>
+err ? console.error(err) : console.log('Entered.')
+);
+}
+
+
+function askQuestions(questions) 
+	{
+
+	inquirer.prompt(questions)
+	.then(answers => 
+		{
+		console.log(answers.projectTitle);
+		console.log(answers.description);
+		console.log(answers.installationInstructions);
+		console.log(answers.usageInformation);
+		console.log(answers.contributionGuidelines);
+		console.log(answers.testInstructions);
+		console.log(answers.githubUsername);
+		console.log(answers.emailAddress);
+		}
+		);
+	}
+
+
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+
+
+
+}
 
 // Function call to initialize app
 init();
 
+askQuestions(questions);
 
 
 /*
