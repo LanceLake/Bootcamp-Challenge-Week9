@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const markdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = 
@@ -50,7 +51,7 @@ const questions =
 
 // TODO: Create a function to write README file
 function writeToFile(data) {
-fs.appendFile('README.md.txt', `${process.argv[2]}\n`, (err) =>
+fs.appendFile('README.md.txt', data, (err) =>
 err ? console.error(err) : console.log('Entered.')
 );
 }
@@ -62,14 +63,16 @@ function askQuestions(questions)
 	inquirer.prompt(questions)
 	.then(answers => 
 		{
-		console.log(answers.projectTitle);
-		console.log(answers.description);
-		console.log(answers.installationInstructions);
-		console.log(answers.usageInformation);
-		console.log(answers.contributionGuidelines);
-		console.log(answers.testInstructions);
-		console.log(answers.githubUsername);
-		console.log(answers.emailAddress);
+		markdown.generateMarkdown("projectTitle",answers.projectTitle);
+		markdown.generateMarkdown("description",answers.description);
+		markdown.generateMarkdown("installationInstructions",answers.installationInstructions);
+		markdown.generateMarkdown("usageInformation",answers.usageInformation);
+		markdown.generateMarkdown("contributionGuidelines",answers.contributionGuidelines);
+		markdown.generateMarkdown("testInstructions",answers.testInstructions);
+		markdown.generateMarkdown("githubUsername",answers.githubUsername);
+		markdown.generateMarkdown("emailAddress",answers.emailAddress);
+		
+
 		}
 		);
 	}
