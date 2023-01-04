@@ -76,3 +76,4 @@ function generateMarkdown(type,data)
 }
 
 module.exports = generateMarkdown;
+
