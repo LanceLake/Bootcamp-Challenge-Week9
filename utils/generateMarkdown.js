@@ -1,6 +1,10 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+
+console.log('test');
+return "pass";
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -18,7 +22,7 @@ function generateMarkdown(type,data)
 
 	switch(type)
 	{
-		case 'title':
+		case 'projectTitle':
 			markdown = `# ${data}
 
 			`;
@@ -67,7 +71,7 @@ function generateMarkdown(type,data)
 		break;
 	}
 
-	writeToFile(markdown);
+	return markdown;
 
 }
 

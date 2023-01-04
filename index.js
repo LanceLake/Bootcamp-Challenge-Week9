@@ -1,7 +1,8 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const markdown = require('./utils/generateMarkdown');
+const generateMarkdown = require('./utils/generateMarkdown');
+const renderLicenseBadge = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = 
@@ -56,32 +57,33 @@ err ? console.error(err) : console.log('Entered.')
 );
 }
 
-
-function askQuestions(questions) 
-	{
+// TODO: Create a function to initialize app
+function init() {
 
 	inquirer.prompt(questions)
 	.then(answers => 
 		{
-		markdown.generateMarkdown("projectTitle",answers.projectTitle);
-		markdown.generateMarkdown("description",answers.description);
-		markdown.generateMarkdown("installationInstructions",answers.installationInstructions);
-		markdown.generateMarkdown("usageInformation",answers.usageInformation);
-		markdown.generateMarkdown("contributionGuidelines",answers.contributionGuidelines);
-		markdown.generateMarkdown("testInstructions",answers.testInstructions);
-		markdown.generateMarkdown("githubUsername",answers.githubUsername);
-		markdown.generateMarkdown("emailAddress",answers.emailAddress);
+		markdown = generateMarkdown("projectTitle",answers.projectTitle);
+		writeToFile(markdown);
+		markdown = generateMarkdown("description",answers.description);
+		writeToFile(markdown);
+		markdown = generateMarkdown("installationInstructions",answers.installationInstructions);
+		writeToFile(markdown);
+		markdown = generateMarkdown("usageInformation",answers.usageInformation);
+		writeToFile(markdown);
+		markdown = generateMarkdown("contributionGuidelines",answers.contributionGuidelines);
+		writeToFile(markdown);
+		markdown = generateMarkdown("testInstructions",answers.testInstructions);
+		writeToFile(markdown);
+		markdown = generateMarkdown("githubUsername",answers.githubUsername);
+		writeToFile(markdown);
+		markdown = generateMarkdown("emailAddress",answers.emailAddress);
+		writeToFile(markdown);
 		
-
+		markdown = renderLicenseBadge('blah');
+		writeToFile(markdown);
 		}
 		);
-	}
-
-
-
-// TODO: Create a function to initialize app
-function init() {
-
 
 
 }
@@ -89,7 +91,6 @@ function init() {
 // Function call to initialize app
 init();
 
-askQuestions(questions);
 
 
 /*
