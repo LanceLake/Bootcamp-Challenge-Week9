@@ -1,10 +1,6 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {
-
-console.log('test');
-return "pass";
-}
+function renderLicenseBadge(license) {}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -25,49 +21,69 @@ function generateMarkdown(type,data)
 		case 'projectTitle':
 			markdown = `# ${data}
 
-			`;
+
+`;
 		break;
 
 		case 'description':
-		markdown = `# ${data}
+		markdown = `Description
 
-			`;
+## ${data}
+
+
+`;
 		break;
 
 		case 'installationInstructions':
-			markdown =  `# ${data}
+			markdown =  `Installation
+			
+## ${data}
 
-			`;
+
+`;
 		break;
 
 		case 'usageInformation':
-			markdown =  `# ${data}
+			markdown =  `Usage
 
-			`;
+## ${data}
+
+
+`;
 		break;
 
 		case 'contributionGuidelines':
-			markdown =  `# ${data}
+		markdown =  `Contributing
 
-			`;
+## ${data}
+
+
+`;
 		break;
 
 		case 'testInstructions':
-			markdown =  `# ${data}
+		markdown =  `Tests
 
-			`;
+## ${data}
+
+
+`;
 		break;
 
 		case 'githubUsername':
-			markdown =  `# ${data}
+			markdown =  `Questions
 
-			`;
+Github Username: ${data}
+
+
+`;
 		break;
 
 		case 'emailAddress':
-			markdown =  `# ${data}
+			markdown =  `Email Address: ${data}
 
-			`;
+
+`;
 		break;
 	}
 

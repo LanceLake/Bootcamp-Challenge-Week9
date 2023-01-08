@@ -52,7 +52,7 @@ const questions =
 
 // TODO: Create a function to write README file
 function writeToFile(data) {
-fs.appendFile('README.md.txt', data, (err) =>
+fs.appendFile('Test.md', data, (err) =>
 err ? console.error(err) : console.log('Entered.')
 );
 }
@@ -63,25 +63,22 @@ function init() {
 	inquirer.prompt(questions)
 	.then(answers => 
 		{
-		markdown = generateMarkdown("projectTitle",answers.projectTitle);
-		writeToFile(markdown);
-		markdown = generateMarkdown("description",answers.description);
-		writeToFile(markdown);
-		markdown = generateMarkdown("installationInstructions",answers.installationInstructions);
-		writeToFile(markdown);
-		markdown = generateMarkdown("usageInformation",answers.usageInformation);
-		writeToFile(markdown);
-		markdown = generateMarkdown("contributionGuidelines",answers.contributionGuidelines);
-		writeToFile(markdown);
-		markdown = generateMarkdown("testInstructions",answers.testInstructions);
-		writeToFile(markdown);
-		markdown = generateMarkdown("githubUsername",answers.githubUsername);
-		writeToFile(markdown);
-		markdown = generateMarkdown("emailAddress",answers.emailAddress);
-		writeToFile(markdown);
-		
-		markdown = renderLicenseBadge('blah');
-		writeToFile(markdown);
+		projectTitle = generateMarkdown("projectTitle",answers.projectTitle);
+		writeToFile(projectTitle);
+		description = generateMarkdown("description",answers.description);
+		writeToFile(description);
+		installationInstructions = generateMarkdown("installationInstructions",answers.installationInstructions);
+		writeToFile(installationInstructions);
+		usageInformation = generateMarkdown("usageInformation",answers.usageInformation);
+		writeToFile(usageInformation);
+		contributionGuidelines = generateMarkdown("contributionGuidelines",answers.contributionGuidelines);
+		writeToFile(contributionGuidelines);
+		testInstructions = generateMarkdown("testInstructions",answers.testInstructions);
+		writeToFile(testInstructions);
+		githubUsername = generateMarkdown("githubUsername",answers.githubUsername);
+		writeToFile(githubUsername);
+		emailAddress = generateMarkdown("emailAddress",answers.emailAddress);
+		writeToFile(emailAddress);
 		}
 		);
 
